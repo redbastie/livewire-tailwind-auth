@@ -1,0 +1,47 @@
+<?php
+
+namespace App\Http\Livewire\Auth;
+
+use App\Providers\RouteServiceProvider;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\RateLimiter;
+use Livewire\Component;
+use Redbastie\LaravelLivewireHelpers\WithData;
+
+class Login extends Component
+{
+    use WithData;
+
+    public $routeUri = '/login';
+    public $routeName = 'login';
+    public $routeMiddleware = 'guest';
+
+    public function render()
+    {
+        return view('livewire.auth.login');
+    }
+
+    public function login()
+    {
+        $validated = $this->validateData([
+            'email' => ['required', 'email'],
+            'password' => ['required'],
+        ]);
+
+        if (RateLimiter::tooManyAttempts($this->throttleKey(), 5)) {
+            $this->addError('email', __('auth.throttle', ['seconds' => RateLimiter::availableIn($this->throttleKey())]));
+            return null;
+        } else if (!Auth::attempt($validated, $this->data('remember'))) {
+            RateLimiter::hit($this->throttleKey());
+            $this->addError('email', __('auth.failed'));
+            return null;
+        }
+
+        return redirect()->intended(RouteServiceProvider::HOME);
+    }
+
+    public function throttleKey()
+    {
+        return $this->data('email') . '|' . request()->ip();
+    }
+}

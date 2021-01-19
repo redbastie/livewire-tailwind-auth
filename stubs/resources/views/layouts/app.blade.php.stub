@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
+    @livewireScripts
+    <script src="{{ asset('js/app.js') }}"></script>
+    @stack('scripts')
+
+    @livewireStyles
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+    <title>@hasSection('title') @yield('title') | @endif {{ config('app.name') }}</title>
+</head>
+<body class="space-y-4 m-4">
+    <nav class="container flex items-center justify-between max-w-screen-md mx-auto">
+        <a href="{{ url('/') }}" class="text-xl">
+            {{ config('app.name') }}
+        </a>
+        <ul class="flex space-x-4">
+            @guest
+                <li><a href="{{ route('login') }}" class="text-blue-600">{{ __('Login') }}</a></li>
+                <li><a href="{{ route('register') }}" class="text-blue-600">{{ __('Register') }}</a></li>
+            @else
+                <li><a href="{{ route('home') }}" class="text-blue-600">{{ __('Home') }}</a></li>
+                <li><a href="{{ route('logout') }}" class="text-blue-600">{{ __('Logout') }}</a></li>
+            @endguest
+        </ul>
+    </nav>
+
+    <main class="container max-w-screen-md mx-auto">
+        {{ $slot }}
+    </main>
+</body>
+</html>

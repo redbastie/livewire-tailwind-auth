@@ -1,0 +1,10 @@
+@section('title', __('Home'))
+
+<div class="border divide-y md:w-1/2 mx-auto">
+    <h1 class="p-4">
+        @yield('title')
+    </h1>
+    <p class="p-4">
+        {{ __('You are logged in!') }}
+    </p>
+</div>

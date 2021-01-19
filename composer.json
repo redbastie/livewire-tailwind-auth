@@ -1,0 +1,30 @@
+{
+    "name": "redbastie/livewire-tailwind-auth",
+    "description": "Basic Laravel auth scaffolding with Livewire and Tailwind.",
+    "homepage": "https://github.com/redbastie/livewire-tailwind-auth",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Kevin Dion",
+            "email": "redbastie@icloud.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "laravel/framework": "^8.0",
+        "livewire/livewire": "^2.0",
+        "redbastie/laravel-livewire-helpers": "^1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Redbastie\\LivewireTailwindAuth\\": "src"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Redbastie\\LivewireTailwindAuth\\ServiceProvider"
+            ]
+        }
+    }
+}
