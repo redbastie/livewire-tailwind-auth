@@ -2,17 +2,11 @@
 
 Basic Laravel auth scaffolding using Livewire and Tailwind.
 
-NPM must be installed on your machine to use this package!
+It is strongly recommended to use this package with a brand new Laravel app.
+
+NPM must be installed on your machine to use this package.
 
 ## Installation
-
-Install via composer:
-
-    composer require redbastie/livewire-tailwind-auth
-
-## Usage
-
-It is strongly recommended to use this package with a new Laravel app.
 
 Install Laravel:
 
@@ -23,6 +17,10 @@ Configure `.env` app, database, and mail values:
     APP_*
     DB_*
     MAIL_*
+
+Install Livewire Tailwind Auth:
+
+    composer require redbastie/livewire-tailwind-auth
 
 Make Livewire Tailwind Auth via the `make:auth` command:
 
