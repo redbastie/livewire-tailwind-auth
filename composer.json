@@ -13,7 +13,8 @@
     "require": {
         "laravel/framework": "^8.0",
         "livewire/livewire": "^2.0",
-        "redbastie/laravel-livewire-helpers": "^1.0"
+        "redbastie/laravel-livewire-helpers": "^1.0",
+        "redbastie/livewire-auto-route": "^1.0"
     },
     "autoload": {
         "psr-4": {
@@ -28,3 +29,4 @@
         }
     }
 }
+
