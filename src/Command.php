@@ -28,7 +28,7 @@ class Command extends \Illuminate\Console\Command
         }
 
         exec('npm install');
-        exec('npm install tailwindcss@latest postcss@latest autoprefixer@latest -D');
+        exec('npm install tailwindcss@latest postcss@latest autoprefixer@latest @tailwindcss/forms -D');
         exec('npm run dev');
 
         Artisan::call('migrate:fresh --seed');
