@@ -1,3 +1,9 @@
+# NO LONGER MAINTAINED
+
+This package is no longer maintained. Please consider my latest package here: https://github.com/redbastie/skele
+
+-----
+
 # Livewire Tailwind Auth
 
 Basic Laravel auth scaffolding using Livewire and Tailwind.
